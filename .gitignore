@@ -1,0 +1,6 @@
+tabletop.yaml
+*.test
+*.out
+node_modules
+internal/apps
+/bin
