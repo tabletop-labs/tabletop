@@ -15,7 +15,13 @@ Imagine [Rails](https://rubyonrails.org), [Elixir](https://elixir-lang.org)/[Erl
 - [Grafana](https://github.com/grafana/grafana) for operational visualization that can also be used for BI tasks
 - [Loki](https://github.com/grafana/loki) for logs
 - [Prometheus](https://github.com/prometheus/prometheus) for metrics
+- [Tempo](https://github.com/grafana/tempo) for tracing
 - [Kafka](https://kafka.apache.org) as an API with [Redpanda](https://redpanda.com) for low latency message storage and processing
+- [Flink](https://flink.apache.org) for unified batch/stream processing
+- [Clickhouse](https://github.com/ClickHouse/ClickHouse) as an open cloud lakehouse with support for Postgres/MySQL wire protocols
+- [gRPC](https://grpc.io) for service communication
+- [Apache APISIX](https://github.com/apache/apisix) cloud-native API gateway
+- [Next.JS](https://nextjs.org) for rich web frontends
 
 ## What Can I Do? TLDR;
 
