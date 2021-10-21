@@ -1,4 +1,4 @@
-FROM golang:1.16.0-alpine3.12 AS BUILD_GOLANG
+FROM golang:1.17.0-alpine3.13 AS BUILD_GOLANG
 WORKDIR /app
 COPY ./go.mod ./go.mod
 COPY ./go.sum ./go.sum
@@ -10,7 +10,7 @@ COPY ./Makefile ./Makefile
 RUN apk add --update make
 RUN make build.bin
 
-FROM golang:1.16.0-alpine3.12 AS RUN
+FROM golang:1.17.0-alpine3.13 AS RUN
 ENV SUBCOMMAND=${SUBCOMMAND:-"start"}
 WORKDIR /app
 COPY --from=BUILD_GOLANG /app/bin /app/bin
