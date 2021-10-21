@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
-	cmd.AddCommands()
+	cmd.AddCoreCommands(cmd.RootCmd)
+	cmd.AddDataCommands(cmd.RootCmd)
 	cmd.Execute(context.Background())
 }
