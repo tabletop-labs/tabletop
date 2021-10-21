@@ -3,6 +3,7 @@ package start
 import (
 	"fmt"
 
+	"github.com/fremantle-industries/tabletop/pkg/apps"
 	"github.com/spf13/cobra"
 )
 
@@ -11,7 +12,14 @@ var (
 		Use:   "start",
 		Short: "Start all applications",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Printf("TODO> start all applications\n")
+			fmt.Println("to stop press Ctrl-C")
+
+			node, err := apps.StartNode()
+			if err != nil {
+				return err
+			}
+			node.Wait()
+
 			return nil
 		},
 	}
