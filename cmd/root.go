@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	rootCmd = &cobra.Command{
+	RootCmd = &cobra.Command{
 		Use: "tabletop",
 		Long: `CLI interface for tabletop. A curated selection of tools, libraries and services that
 help tame your dataflow to productively build ambitious, data driven & reactive
@@ -20,5 +20,5 @@ Imagine Rails, Elixir/Erlang OTP & Spring had a baby.`,
 )
 
 func Execute(ctx context.Context) {
-	cobra.CheckErr(rootCmd.ExecuteContext(ctx))
+	cobra.CheckErr(RootCmd.ExecuteContext(ctx))
 }
