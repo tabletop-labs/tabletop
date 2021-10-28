@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  control:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - control_ui_node_modules:/app/pkg/control/ui/node_modules
+      - control_ui_out:/app/pkg/control/ui/out
+    environment:
+      - SUBCOMMAND=control start
+      - CONFIG=/app/tabletop.yaml
+
   minio:
     image: minio/minio:latest
     volumes:
@@ -12,6 +23,13 @@ services:
 
   loki:
     image: grafana/loki:v1.3.0
+    # ports:
+    #   - "3100:3100"
+    # volumes:
+    #   - ./config/loki.yaml:/etc/config/loki.yaml
+    # entrypoint:
+    #   - /usr/bin/loki
+    #   - -config.file=/etc/config/loki.yaml
 
   prometheus:
     build:
@@ -84,6 +102,8 @@ services:
       - REDPANDA_CONSOLE_INTERNAL_HOST=redpanda-console
 
 volumes:
+  control_ui_node_modules:
+  control_ui_out:
   minio_data:
   prometheus_data:
   redpanda_broker_1_data:

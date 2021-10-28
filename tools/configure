@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp -i tabletop.example.yaml tabletop.yaml

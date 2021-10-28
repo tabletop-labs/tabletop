@@ -1,0 +1,15 @@
+ui:
+  enabled: true
+  port: 8080
+
+api:
+  enabled: true
+  port: 8081
+
+stream_engine:
+  enabled: true
+  seeds: redpanda-broker-1:29092, redpanda-broker-2:29092, redpanda-broker-3:29092
+
+inbound_connectors:
+
+outbound_connectors:
