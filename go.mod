@@ -3,7 +3,7 @@ module github.com/fremantle-industries/tabletop
 go 1.18
 
 require (
-	github.com/ergo-services/ergo v1.999.200
+	github.com/ergo-services/ergo v1.999.220
 	github.com/spf13/cobra v1.6.1
 	github.com/twmb/franz-go v1.11.3
 	nhooyr.io/websocket v1.8.7
