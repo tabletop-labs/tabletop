@@ -1,8 +1,8 @@
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/ergo-services/ergo v1.999.200 h1:c48zMCYcPx19iMnk+mYXX+h6k6U/fsiGQF4UIvcTQ4M=
-github.com/ergo-services/ergo v1.999.200/go.mod h1:iQKxlBMaflSiCV8F+kVeCwwlJxjs78dTuiS8P/Bp/kk=
+github.com/ergo-services/ergo v1.999.220 h1:2nS1QSoJQgEThzXYoaC9BSnePxTua39cSbF7CcKCw2I=
+github.com/ergo-services/ergo v1.999.220/go.mod h1:uXFQ+bMVZ6R3ygBrQSlaHtx1Bj+cINZo0A8CZ/WYqN4=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.6.3 h1:ahKqKTFpO5KTPHxWZjEdPScmYaGtLo8Y4DMHoEsnp14=
