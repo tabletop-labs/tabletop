@@ -86,6 +86,10 @@ func (g *ProjectGenerator) Steps() ([]generators.Step, error) {
 			Project:     project,
 			ProjectName: g.projectName(),
 		},
+		&projectDockerServiceClickhouseGenerator{
+			Project:     project,
+			ProjectName: g.projectName(),
+		},
 		&projectDockerServiceReverseProxyGenerator{
 			Project:     project,
 			ProjectName: g.projectName(),
@@ -436,6 +440,30 @@ func (g *projectDockerServiceRedpandaConsoleGenerator) Steps() ([]generators.Ste
 		&generators.EmbeddedTemplateStep{
 			SourcePath: path.Join(sourceRedpandaConsolePath, "Dockerfile.tpl"),
 			OutPath:    path.Join(redpandaConsolePath, "Dockerfile"),
+			Data:       tplData,
+		},
+	}, nil
+}
+
+// projectDockerServiceClickhouseGenerator creates the directory and files for the project /docker/service/clickhouse
+type projectDockerServiceClickhouseGenerator struct {
+	Project     generators.Project
+	ProjectName string
+}
+
+func (g *projectDockerServiceClickhouseGenerator) Steps() ([]generators.Step, error) {
+	clickhousePath := path.Join(g.Project.Path, "docker", "services", "clickhouse")
+	sourceClickhousePath := path.Join("project", "docker", "services", "clickhouse")
+	tplData := struct {
+		ProjectName string
+	}{g.ProjectName}
+
+	return []generators.Step{
+		&generators.EnsureDirStep{Path: clickhousePath},
+		&generators.EnsureDirStep{Path: path.Join(clickhousePath, "templates")},
+		&generators.EmbeddedTemplateStep{
+			SourcePath: path.Join(sourceClickhousePath, "Dockerfile.tpl"),
+			OutPath:    path.Join(clickhousePath, "Dockerfile"),
 			Data:       tplData,
 		},
 	}, nil

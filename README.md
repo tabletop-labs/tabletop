@@ -12,10 +12,11 @@ Imagine [Rails](https://rubyonrails.org), [Elixir](https://elixir-lang.org)/[Erl
 
 - [golang](https://go.dev) for glue and custom producers/processors/consumers
 - [S3/R2/MinIO](https://en.wikipedia.org/wiki/Amazon_S3) as an API for object storage
+- [Kafka](https://kafka.apache.org) as an API with [Redpanda](https://redpanda.com) for low latency message storage and processing
+- [Clickhouse](https://clickhouse.com/clickhouse) OLAP RDBMS
 - [Grafana](https://github.com/grafana/grafana) for operational visualization that can also be used for BI tasks
 - [Loki](https://github.com/grafana/loki) for logs
 - [Prometheus](https://github.com/prometheus/prometheus) for metrics
-- [Kafka](https://kafka.apache.org) as an API with [Redpanda](https://redpanda.com) for low latency message storage and processing
 
 ## What Can I Do? TLDR;
 
