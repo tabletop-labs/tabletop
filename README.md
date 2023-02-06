@@ -11,6 +11,7 @@ Imagine [Rails](https://rubyonrails.org), [Elixir](https://elixir-lang.org)/[Erl
 
 - [golang](https://go.dev) for glue and custom producers/processors/consumers
 - [S3/R2/MinIO](https://en.wikipedia.org/wiki/Amazon_S3) as an API for object storage
+- [LakeFS](https://docs.lakefs.io) version control for object storage
 - [Kafka](https://kafka.apache.org) as an API with [Redpanda](https://redpanda.com) for low latency message storage and processing
 - [Clickhouse](https://clickhouse.com/clickhouse) OLAP DBMS
 - [Grafana](https://github.com/grafana/grafana) for operational visualization that can also be used for BI tasks
@@ -62,6 +63,7 @@ creating template /tmp/myapp/README.md
 | Prometheus                 | [`prometheus.localhost`](http://prometheus.localhost)           |
 | Redpanda Kafka Console     | [`redpanda.localhost`](http://redpanda.localhost)               |
 | Clickhouse                 | [`clickhouse.localhost/play`](http://clickhouse.localhost/play) |
+| LakeFS                     | [`lakefs.localhost`](http://lakefs.localhost)                   |
 | MinIO Console              | [`minio.localhost`](http://minio.localhost)                     |
 
 ## Contributing

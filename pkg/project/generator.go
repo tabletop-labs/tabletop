@@ -70,6 +70,10 @@ func (g *ProjectGenerator) Steps() ([]generators.Step, error) {
 			Project:     project,
 			ProjectName: g.projectName(),
 		},
+		&projectDockerServiceLakefsGenerator{
+			Project:     project,
+			ProjectName: g.projectName(),
+		},
 		&projectDockerServiceLokiGenerator{
 			Project:     project,
 			ProjectName: g.projectName(),
@@ -323,6 +327,29 @@ func (g *projectDockerServiceGrafanaGenerator) Steps() ([]generators.Step, error
 		&generators.EmbeddedTemplateStep{
 			SourcePath: path.Join(sourceGrafanaPath, "provisioning", "plugins", ".gitkeep.tpl"),
 			OutPath:    path.Join(grafanaPath, "provisioning", "plugins", ".gitkeep"),
+			Data:       tplData,
+		},
+	}, nil
+}
+
+// projectDockerServiceLakefsGenerator creates the directory and files for the project /docker/service/lakefs
+type projectDockerServiceLakefsGenerator struct {
+	Project     generators.Project
+	ProjectName string
+}
+
+func (g *projectDockerServiceLakefsGenerator) Steps() ([]generators.Step, error) {
+	lakefsPath := path.Join(g.Project.Path, "docker", "services", "lakefs")
+	sourceLakefsPath := path.Join("project", "docker", "services", "lakefs")
+	tplData := struct {
+		ProjectName string
+	}{g.ProjectName}
+
+	return []generators.Step{
+		&generators.EnsureDirStep{Path: lakefsPath},
+		&generators.EmbeddedTemplateStep{
+			SourcePath: path.Join(sourceLakefsPath, "Dockerfile.tpl"),
+			OutPath:    path.Join(lakefsPath, "Dockerfile"),
 			Data:       tplData,
 		},
 	}, nil
