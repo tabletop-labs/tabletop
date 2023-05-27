@@ -1,0 +1,27 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: tabletop
+servers: 1
+agents: 2
+kubeAPI:
+  host: "master.127.0.0.1.traefik.me"
+  hostIP: "127.0.0.1"
+  hostPort: "6445"
+image: rancher/k3s:v1.26.5-k3s1
+ports:
+  - port: 80:80
+    nodeFilters:
+      - loadbalancer
+options:
+  k3d:
+    wait: true
+    timeout: "60s"
+  k3s:
+    extraArgs:
+      - arg: --tls-san=127.0.0.1.traefik.me
+        nodeFilters:
+          - server:*
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true

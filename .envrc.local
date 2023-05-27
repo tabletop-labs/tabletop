@@ -1,0 +1,3 @@
+# export KUBECONFIG=~/.kube/k3s_config.yaml
+export MINIO_ACCESS_KEY=tEaZEv0hMSDCye1x
+export MINIO_SECRET_KEY=r6Z10XIDDo6wC8W2fRGYx0HFL39UUQVu

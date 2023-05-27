@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: console
+  namespace: tabletop
+  labels:
+    app: console
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: console
+  template:
+    metadata:
+      labels:
+        app: console
+    spec:
+      containers:
+      - name: console
+        image: registry.127.0.0.1.traefik.me/tabletoplabs/console:latest
+        imagePullPolicy: IfNotPresent
+        # volumeMounts:
+        # - name: volv
+        #   mountPath: /data
+        ports:
+          - containerPort: 80
+      # volumes:
+      # - name: volv
+      #   persistentVolumeClaim:
+      #     claimName: local-path-pvc
+        env:
+          - name: "SERVER_HOSTNAME"
+            value: "localhost"
+          - name: "SERVER_PORT"
+            value: "80"

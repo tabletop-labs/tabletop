@@ -1,0 +1,6 @@
+{
+  "dependencies": { "@evan/duckdb": "^0.1.5", "baojs": "^0.2.1" },
+  "devDependencies": {
+    "bun-types": "^0.6.4"
+  }
+}

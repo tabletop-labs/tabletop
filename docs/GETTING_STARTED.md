@@ -1,3 +1,0 @@
-# Tabletop/Getting Started
-
-TODO...

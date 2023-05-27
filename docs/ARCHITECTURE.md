@@ -1,3 +1,0 @@
-# Tabletop/Architecture
-
-TODO...

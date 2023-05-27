@@ -1,0 +1,22 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio-s3
+  namespace: tabletop
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`minio.127.0.0.1.traefik.me`)
+      kind: Rule
+      services:
+        - name: minio
+          port: 9000
+    - match: Host(`minio-console.127.0.0.1.traefik.me`)
+      kind: Rule
+      services:
+        - name: minio
+          port: 9001
+  tls:
+    certResolver: tlsresolver

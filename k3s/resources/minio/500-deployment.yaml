@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio
+  namespace: tabletop
+  labels:
+    app: minio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #           - key: disktype
+      #             operator: In
+      #             values:
+      #               - hdd
+      volumes:
+        - name: s3-pv-storage
+          persistentVolumeClaim:
+            claimName: s3-pvc
+      containers:
+      - name: minio
+        image: quay.io/minio/minio:RELEASE.2023-05-04T21-44-30Z
+        args: ['server', '--console-address', ':9001', '/data']
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: minio
+            containerPort: 9000
+        volumeMounts:
+          - name: s3-pv-storage
+            mountPath: /data
+        env:
+          - name: "MINIO_ROOT_USER"
+            valueFrom:
+              secretKeyRef:
+                name: minio
+                key: MINIO_ROOT_USER
+          - name: "MINIO_ROOT_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: minio
+                key: MINIO_ROOT_PASSWORD
+          # Do NOT use MINIO_DOMAIN or MINIO_SERVER_URL with Traefik.
+          # All Routing is done by Traefik, just tell minio where to redirect to.
+          # https://stackoverflow.com/a/69486130
+          - name: "MINIO_BROWSER_REDIRECT"
+            value: "${MINIO_BROWSER_REDIRECT:-http://minio-console.127.0.0.1.traefik.me}"

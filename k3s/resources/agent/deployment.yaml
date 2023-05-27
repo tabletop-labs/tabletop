@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent
+  namespace: tabletop
+  labels:
+    app: agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent
+  template:
+    metadata:
+      labels:
+        app: agent
+    spec:
+      containers:
+      - name: agent
+        image: registry.127.0.0.1.traefik.me/tabletoplabs/agent:latest
+        imagePullPolicy: IfNotPresent
+        # volumeMounts:
+        # - name: volv
+        #   mountPath: /data
+        ports:
+          - containerPort: 80
+      # volumes:
+      # - name: volv
+      #   persistentVolumeClaim:
+      #     claimName: local-path-pvc
+        env:
+          - name: "SERVER_HOSTNAME"
+            value: "localhost"
+          - name: "SERVER_PORT"
+            value: "80"

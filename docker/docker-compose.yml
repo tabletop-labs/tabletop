@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  console:
+    build:
+      context: .
+      dockerfile: docker/console.Dockerfile
+    image: tabletoplabs/console:latest
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/worker.Dockerfile
+    image: tabletoplabs/worker:latest
+
+  agent:
+    build:
+      context: .
+      dockerfile: docker/agent.Dockerfile
+    image: tabletoplabs/agent:latest
+
+  explore:
+    build:
+      context: .
+      dockerfile: docker/explore.Dockerfile
+    image: tabletoplabs/explore:latest

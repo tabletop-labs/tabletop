@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: explore
+  namespace: tabletop
+  labels:
+    app: explore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: explore
+  template:
+    metadata:
+      labels:
+        app: explore
+    spec:
+      containers:
+      - name: explore
+        image: registry.127.0.0.1.traefik.me/tabletoplabs/explore:latest
+        imagePullPolicy: IfNotPresent
+        # volumeMounts:
+        # - name: volv
+        #   mountPath: /data
+        ports:
+          - containerPort: 80
+      # volumes:
+      # - name: volv
+      #   persistentVolumeClaim:
+      #     claimName: local-path-pvc
+        env:
+          - name: "SERVER_HOSTNAME"
+            value: "localhost"
+          - name: "SERVER_PORT"
+            value: "80"

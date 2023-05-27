@@ -1,0 +1,13 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+name: local
+servers: 1
+agents: 2
+registries:
+  create:
+    name: local-registry
+  config: |
+    mirrors:
+      "local.registry":
+        endpoint:
+          - http://registry.127.0.0.1.traefik.me
