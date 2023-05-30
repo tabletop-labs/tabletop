@@ -1,5 +1,6 @@
 .direnv
 node_modules
+.data
 console/console
 explore/explore
 agent/agent

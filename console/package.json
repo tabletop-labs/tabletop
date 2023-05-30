@@ -1,5 +1,5 @@
 {
-  "dependencies": { "baojs": "^0.2.1" },
+  "dependencies": { "elysia": "^0.5.9", "htmx.org": "^1.9.2" },
   "devDependencies": {
     "bun-types": "^0.6.4"
   }
