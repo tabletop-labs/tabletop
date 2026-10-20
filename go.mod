@@ -1,6 +1,6 @@
 module github.com/fremantle-industries/tabletop
 
-go 1.18
+go 1.24
 
 require (
 	github.com/ergo-services/ergo v1.999.221
@@ -11,7 +11,7 @@ require (
 
 require (
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
-	github.com/klauspost/compress v1.15.9 // indirect
+	github.com/klauspost/compress v1.18.7 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/twmb/franz-go/pkg/kmsg v1.2.0 // indirect
